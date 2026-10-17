@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hardeep &amp; Richa – Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&amp;family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Great+Vibes&amp;family=Tiro+Devanagari+Hindi&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#4a0d1c;--bg2:#2b0610;--gold:#e8c26b;--gold2:#fff1c1;--ink:#fbeedd;--card:rgba(255,241,193,.08);--line:rgba(232,194,107,.45);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#3d0a17;--bg2:#210510}}
+:root[data-theme="dark"]{--bg:#3d0a17;--bg2:#210510}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:radial-gradient(circle at 50% 30%,var(--bg),var(--bg2));color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif;overflow:hidden;text-align:center}
+.dev{font-family:"Tiro Devanagari Hindi","Noto Serif Devanagari",serif}
+#petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.p{position:absolute;top:-30px;width:12px;height:16px;border-radius:70% 0 70% 0;opacity:.8;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg) translateX(40px)}}
+#mandala{position:fixed;left:50%;top:38%;width:130vmin;height:130vmin;margin:-65vmin 0 0 -65vmin;opacity:.14;animation:spin 90s linear infinite;z-index:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+#cover{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px}
+.door{position:fixed;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#7a1230,#4a0d1c);z-index:6;border:1px solid var(--line);transition:transform 1.6s cubic-bezier(.7,0,.2,1)}
+.door.l{left:0;transform-origin:left}.door.r{right:0}
+.open .door.l{transform:translateX(-101%)}.open .door.r{transform:translateX(101%)}
+#cover.gone{opacity:0;pointer-events:none;transition:opacity 1s .8s}
+#cover{z-index:7}
+.gan{width:150px;height:150px;filter:drop-shadow(0 0 10px rgba(232,194,107,.5));animation:pulse 2.4s ease-in-out infinite}
+#cover.bless .gan{animation:bless 1.9s ease-in forwards}
+@keyframes bless{0%{opacity:1;transform:scale(1)}40%{opacity:1;transform:scale(1.5);filter:drop-shadow(0 0 40px #fff1c1)}100%{opacity:0;transform:scale(2.3);filter:drop-shadow(0 0 60px #fff1c1)}}
+#cover.bless>*:not(.gan){opacity:0;transition:opacity .5s}
+@keyframes pulse{50%{transform:scale(1.12);text-shadow:0 0 24px var(--gold)}}
+button{font:inherit;color:var(--bg2);background:linear-gradient(135deg,var(--gold2),var(--gold));border:0;border-radius:30px;padding:12px 28px;font-size:16px;cursor:pointer}
+#main{position:relative;z-index:2;height:100%;overflow-y:auto;padding:28px 18px 40px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.rise{opacity:0;transform:translateY(24px);transition:all 1s}
+.show .rise{opacity:1;transform:none}
+.show .rise:nth-child(2){transition-delay:.4s}.show .rise:nth-child(3){transition-delay:.8s}.show .rise:nth-child(4){transition-delay:1.2s}.show .rise:nth-child(5){transition-delay:1.6s}.show .rise:nth-child(6){transition-delay:2s}
+h1{font-family:"Great Vibes",cursive,serif;font-weight:400;font-size:clamp(60px,18vw,96px);color:var(--gold);line-height:1;text-shadow:0 0 22px rgba(232,194,107,.35)}
+h1 span{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.35em;color:var(--gold2);margin:-6px 0}
+.sm{font-family:Cinzel,Georgia,serif;letter-spacing:.3em;font-size:11px;text-transform:uppercase;color:var(--gold2);line-height:1.8}
+.date{font-family:Cinzel,Georgia,serif;font-size:19px;letter-spacing:.3em;color:var(--gold)}
+.date::before,.date::after{content:"❖";margin:0 12px;font-size:12px;opacity:.7}
+#menu{display:flex;gap:8px;overflow-x:auto;max-width:100%;padding:4px}
+#menu button{background:var(--card);color:var(--gold2);border:1px solid var(--line);padding:9px 16px;font-family:Cinzel,Georgia,serif;font-size:12px;letter-spacing:.14em;white-space:nowrap}
+#menu button.on{background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--bg2)}
+#panel{width:100%;max-width:420px;min-height:230px;border:1px solid var(--line);background:var(--card);border-radius:18px;padding:22px 18px;backdrop-filter:blur(4px)}
+#panel.in{animation:fade .7s}
+@keyframes fade{from{opacity:0;transform:scale(.96)}}
+#panel .ic{font-size:44px}
+#panel h2{font-family:Cinzel,Georgia,serif;font-size:25px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin:4px 0 14px}
+#panel p{margin:10px 0;font-size:20px;line-height:1.35;font-style:italic}
+.k{display:block;font-family:Cinzel,Georgia,serif;font-style:normal;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:2px}
+.foot{font-size:17px;font-style:italic;opacity:.85;max-width:380px}
+.loc{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 20px;border-radius:30px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-family:Cinzel,Georgia,serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:all .3s}
+.loc:hover,.loc:active{background:var(--gold);color:var(--bg2)}
+.fam{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:26px}
+.fam .orn{color:var(--gold);font-size:18px}
+.fcard{width:100%;border:1px solid var(--line);border-radius:18px;padding:22px 16px;background:var(--card)}
+.fcard h3{font-family:"Great Vibes",cursive;font-weight:400;font-size:42px;color:var(--gold);line-height:1.1;margin:6px 0 8px}
+.fcard .rel{font-family:Cinzel,Georgia,serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-top:12px}
+.fcard .par{font-size:20px;font-style:italic;line-height:1.3}
+.fam .amp{font-family:"Great Vibes",cursive;font-size:34px;color:var(--gold)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<svg id="mandala" viewBox="-100 -100 200 200" fill="none" stroke="#e8c26b" stroke-width=".6"></svg>
+<div id="petals"></div>
+<div class="door l"></div><div class="door r"></div>
+<div id="cover">
+  <svg class="gan" viewBox="0 0 120 120" fill="rgba(232,194,107,.12)" stroke="#e8c26b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="56" fill="none" stroke-width=".7"/><path d="M43 32 L60 10 L77 32 Z"/><circle cx="60" cy="8" r="2.5" fill="#e8c26b"/><path d="M38 44 C14 34 8 66 30 80 C36 70 38 58 38 44Z"/><path d="M82 44 C106 34 112 66 90 80 C84 70 82 58 82 44Z"/><ellipse cx="60" cy="54" rx="22" ry="22"/><path d="M60 58 C60 80 51 90 57 104 C62 110 73 106 70 97" fill="none" stroke-width="6"/><path d="M49 72 L41 88" fill="none"/><circle cx="52" cy="49" r="2" fill="#e8c26b"/><circle cx="68" cy="49" r="2" fill="#e8c26b"/><path d="M60 36 V44" fill="none"/><path d="M46 32 C52 26 68 26 74 32" fill="none"/></svg>
+  <div class="sm">You are invited</div>
+  <div style="font-family:'Great Vibes',cursive;font-size:46px;color:var(--gold)">Hardeep &amp; Richa</div>
+  <button id="openBtn">Open Invitation</button>
+</div>
+<div id="main">
+  <div class="rise"><div class="dev" style="font-size:22px;color:var(--gold)">॥ श्री गणेशाय नमः ॥</div></div>
+  <div class="rise sm">Together with their families</div>
+  <h1 class="rise">Hardeep<span>&amp;</span>Richa</h1>
+  <div class="rise sm">Request the pleasure of your company</div>
+  <div class="rise date">22 · 11 · 2026</div>
+  <div class="rise" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:14px">
+    <div id="menu"></div>
+    <div id="panel"></div>
+    <button id="auto">▶ Auto-play tour</button>
+    <p class="foot">With blessings of our elders. Your presence will make our celebration complete.</p>
+    <div class="fam">
+      <div class="orn">❖</div>
+      <div class="sm">Cordially invited by</div>
+      <div class="fcard">
+        <div class="sm">The Groom's Family</div>
+        <h3>Hardeep Panwar</h3>
+        <div class="rel">Son of</div>
+        <div class="par">Parmod Kumar &amp; Promila Devi</div>
+        <div class="rel">Brother</div>
+        <div class="par">Manish Panwar</div>
+      </div>
+      <div class="amp">&amp;</div>
+      <div class="fcard">
+        <div class="sm">The Bride's Family</div>
+        <h3>Richa Rathore</h3>
+        <div class="rel">Daughter of</div>
+        <div class="par">Kuldeep Rathore &amp; Rakesh Rathore</div>
+        <div class="rel">Sisters</div>
+        <div class="par">Riya Rathore &amp; Tannu Rathore</div>
+        <div class="rel">Brother</div>
+        <div class="par">Paras Rathore</div>
+      </div>
+      <p class="foot">We look forward to celebrating with you.</p>
+    </div>
+  </div>
+</div>
+<script>
+var S="https://www.google.com/maps/search/?api=1&query=Doon+Oxford+School+Singhpura+Paonta+Sahib+Himachal+Pradesh";
+var E=[
+{n:"Haldi",ic:"🌼",d:"18 Nov 2026, Wednesday",v:"Singhpura, Paonta Sahib, Himachal Pradesh",l:S},
+{n:"Mehndi",ic:"🌿",d:"21 Nov 2026, Saturday",v:"Singhpura, Paonta Sahib, Himachal Pradesh",l:S},
+{n:"Sangeet",ic:"🎶",d:"21 Nov 2026, Saturday",v:"Singhpura, Paonta Sahib, Himachal Pradesh",l:S},
+{n:"Wedding",ic:"🔥",d:"22 Nov 2026, Sunday",v:"Biharigarh, Saharanpur, UP",l:"https://www.google.com/maps/search/?api=1&query=Biharigarh+Saharanpur+Uttar+Pradesh"},
+{n:"Reception",ic:"✨",d:"24 Nov 2026, Tuesday",v:"Singhpura, Paonta Sahib, Himachal Pradesh",l:S}];
+var m=document.getElementById("menu"),pn=document.getElementById("panel"),timer;
+function sel(i){[].forEach.call(m.children,function(b,j){b.className=j==i?"on":""});var e=E[i];
+pn.className="";void pn.offsetWidth;pn.className="in";
+var h='<div class="ic">'+e.ic+'</div><h2>'+e.n+'</h2>';[["Date",e.d],["Time",e.t],["Venue",e.v],["Dress code",e.c]].forEach(function(r){if(r[1])h+='<p><span class="k">'+r[0]+'</span>'+r[1]+'</p>'});if(e.l)h+='<a class="loc" href="'+e.l+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>View on map</a>';pn.innerHTML=h}
+E.forEach(function(e,i){var b=document.createElement("button");b.textContent=e.n;b.onclick=function(){clearInterval(timer);sel(i)};m.appendChild(b)});
+sel(0);
+document.getElementById("auto").onclick=function(){clearInterval(timer);var i=0;sel(0);timer=setInterval(function(){i++;if(i>=E.length){clearInterval(timer);return}sel(i)},3500)};
+var s=document.getElementById("mandala"),h="";
+for(var r=0;r<16;r++)h+='<ellipse cx="0" cy="-60" rx="14" ry="38" transform="rotate('+r*22.5+')"/>';
+h+='<circle r="95"/><circle r="40"/><circle r="20"/>';s.innerHTML=h;
+var pt=document.getElementById("petals"),cl=["#ff9933","#e8c26b","#d6336c","#ffd166"];
+for(var k=0;k<22;k++){var p=document.createElement("i");p.className="p";p.style.left=Math.random()*100+"%";p.style.background=cl[k%4];p.style.animationDuration=7+Math.random()*7+"s";p.style.animationDelay=-Math.random()*12+"s";pt.appendChild(p)}
+document.getElementById("openBtn").onclick=function(){var c=document.getElementById("cover");c.classList.add("bless");setTimeout(function(){document.body.classList.add("open")},1500);setTimeout(function(){c.classList.add("gone")},1900);setTimeout(function(){document.getElementById("main").classList.add("show")},2500)};
+</script>
+</body>
+</html>
